@@ -1,5 +1,5 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairWest, function (sprite, location) {
-    game.over(true)
+    tiles.setCurrentTilemap(tilemap`level1`)
 })
 let mySprite = sprites.create(img`
     ..............
@@ -39,8 +39,7 @@ let mySprite = sprites.create(img`
     ...4......4...
     ..444....444..
     `, SpriteKind.Player)
-controller.moveSprite(mySprite, 100, 100)
-tiles.setTilemap(tilemap`level_1`)
-tiles.placeOnRandomTile(mySprite, sprites.dungeon.stairLadder)
+controller.moveSprite(mySprite, 100, 0)
+tiles.setCurrentTilemap(tilemap`level1`)
+tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
 scene.cameraFollowSprite(mySprite)
-info.startCountdown(10)
